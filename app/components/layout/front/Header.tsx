@@ -1,3 +1,4 @@
+import Logo from "../../ui/Logo";
 import NavLink from "../../ui/NavLink";
 import SearchBox from "../../ui/SearchBox";
 import UserCart from "../../ui/UserCart";
@@ -10,7 +11,7 @@ export default function Header({}: Props) {
       <div className="container mx-auto">
         <div className="grid grid-cols-12 items-center">
           <div className="col-span-3">
-            <img src="./assets/logo.png" alt="" className="sm:w-20" />
+            <Logo />
           </div>
           <div className="col-span-5 hidden sm:block">
             <nav>

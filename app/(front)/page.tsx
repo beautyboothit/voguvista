@@ -1,7 +1,24 @@
+import Banner from "../components/home/Banner";
+import BestSale from "../components/home/BestSale";
+import ScrollBanner from "../components/home/ScrollBanner";
+import TopBanner from "../components/home/TopBanner";
+import TopCategories from "../components/home/TopCategories";
+import TopProducts from "../components/home/TopProducts";
+import TrendingProducts from "../components/home/TrendingProducts";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Welcome to Vougevista</h1>
-    </main>
+    <div>
+      <Banner />
+
+      <div className="container mx-auto">
+        <TopCategories />
+        <TopProducts />
+        <TopBanner />
+        <TrendingProducts />
+        <BestSale />
+        <ScrollBanner />
+      </div>
+    </div>
   );
 }

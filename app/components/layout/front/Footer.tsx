@@ -1,5 +1,6 @@
 import React from "react";
 import NavLink from "../../ui/NavLink";
+import Logo from "../../ui/Logo";
 
 type Props = {};
 
@@ -8,9 +9,7 @@ export default function Footer({}: Props) {
     <div className="container mx-auto">
       <div className="section_intro">
         <div className="flex flex-wrap md:flex-nowrap justify-between items-center">
-          <div className="">
-            <img src="./assets/logo.png" alt="" width="84px" />
-          </div>
+          <Logo />
           <div className="order-3 md:order-2 w-full md:w-auto mt-8 sm:mt-0">
             <nav className="flex flex-col sm:flex-row">
               <NavLink href="#" label="Overview" />

@@ -2,26 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply overflow-x-hidden;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  /* header  */
+  header {
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.04);
+    @apply sticky top-0 bg-white z-10;
+  }
+  .nav_item {
+    @apply text-blackColor text-[16px] px-4 py-[10px];
+  }
+  .search_box .icon {
+    @apply absolute left-[10px] top-4;
+  }
+
+  .search_box .input {
+    @apply w-full bg-bgColor py-3 pr-4 pl-9 border border-baseColor rounded-md;
+  }
+
+  /* top categories  */
+  .section_intro {
+    @apply mt-[60px];
+  }
+  .section_intro h2 {
+    @apply font-bold text-[32px] text-center mb-9;
+  }
+
+  /* product  */
+  .product_item {
+  }
+
+  .product_item h3 {
+    @apply text-blackColor mt-9 mb-2 line-clamp-1;
+  }
+
+  .product_item h4 {
+    @apply font-semibold text-[20px] text-black;
+  }
+
+  /* scrollbar  */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* container  */
+  @media (max-width: 639px) {
+    .container {
+      padding: 0 15px;
+    }
+  }
+}
+
+@layer utilities {
+  .f-24 {
+    @apply text-[24px];
+  }
+  .f-22 {
+    @apply text-[22px];
+  }
+  .f-20 {
+    @apply text-[20px];
+  }
+  .f-18 {
+    @apply text-[18px];
+  }
+  .f-14 {
+    @apply text-[14px];
+  }
+  .f-12 {
+    @apply text-[12px];
+  }
 }

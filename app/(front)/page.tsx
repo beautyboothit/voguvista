@@ -1,4 +1,4 @@
-export const runtime="edge"
+export const runtime = "edge";
 import { fetchHomeData } from "@/lib/fetcher";
 import Banner from "../components/home/Banner";
 import BestSale from "../components/home/BestSale";
@@ -9,14 +9,14 @@ import TopProducts from "../components/home/TopProducts";
 import TrendingProducts from "../components/home/TrendingProducts";
 
 export default async function Home() {
-  const {sliders,topCategories} =await fetchHomeData();
+  const { sliders, topCategories, bestProducts } = await fetchHomeData();
   return (
     <div>
-      <Banner sliders={sliders}/>
+      <Banner sliders={sliders} />
 
       <div className="container mx-auto">
-        <TopCategories topCategories={topCategories}/>
-        <TopProducts />
+        <TopCategories topCategories={topCategories} />
+        <TopProducts bestProducts={bestProducts} />
         <TopBanner />
         <TrendingProducts />
         <BestSale />

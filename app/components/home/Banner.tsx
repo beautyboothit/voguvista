@@ -26,6 +26,7 @@ export default function Banner({ sliders }: Props) {
           key={index}
           src={`${process.env.ASSET_ENDPOINT}${image.photo}`}
           alt="logo"
+          loading="lazy"
         />
       ))}
     </div>

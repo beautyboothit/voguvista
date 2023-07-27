@@ -9,8 +9,8 @@ export default function TrendingProducts({}: Props) {
       <div className="grid grid-cols-12 gap-[30px]">
         <a href="#" className="col-span-4">
           <div className="flex items-center border border-baseColor rounded-xl text-center relative group">
-            <div className="image" width="150px">
-              <img src="/2.png" alt="" className="mix-blend-darken" />
+            <div className="image w-[150px]">
+              <img src="/product/2.png" alt="" className="mix-blend-darken" />
             </div>
             <div className="flex flex-col items-start ml-6 text-left">
               <h3 className="line-clamp-1">
@@ -41,8 +41,8 @@ export default function TrendingProducts({}: Props) {
         </a>
         <a href="#" className="col-span-4">
           <div className="flex items-center border border-baseColor rounded-xl text-center relative group">
-            <div className="image" width="150px">
-              <img src="/1.png" alt="" className="mix-blend-darken" />
+            <div className="image w-[150px]">
+              <img src="/product/1.png" alt="" className="mix-blend-darken" />
             </div>
             <div className="flex flex-col items-start ml-6 text-left">
               <h3 className="line-clamp-1">
@@ -73,8 +73,8 @@ export default function TrendingProducts({}: Props) {
         </a>
         <a href="#" className="col-span-4">
           <div className="flex items-center border border-baseColor rounded-xl text-center relative group">
-            <div className="image" width="150px">
-              <img src="/2.png" alt="" className="mix-blend-darken" />
+            <div className="image w-[150px]">
+              <img src="/product/2.png" alt="" className="mix-blend-darken" />
             </div>
             <div className="flex flex-col items-start ml-6 text-left">
               <h3 className="line-clamp-1">

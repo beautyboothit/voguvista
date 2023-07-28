@@ -1,6 +1,7 @@
 import { ProductProps } from "@/lib/types";
 import FeatureProduct from "./FeatureProduct";
 import Link from "next/link";
+import Image from "next/image";
 
 type Product = ProductProps;
 type Props = {
@@ -54,10 +55,19 @@ export default function TopProducts({ bestProducts }: Props) {
               className="px-10 pt-[113px] pb-10 bg-baseColor rounded-xl"
             >
               <div className="product_item">
-                <img
+                {/* <img
                   src={`${process.env.ASSET_ENDPOINT}${bestProducts[0].thumbnail_image}`}
                   alt=""
                   className="mix-blend-darken mx-auto"
+                  loading="lazy"
+                /> */}
+                <Image
+                  // className="object-fill"
+                  layout="responsive"
+                  width={350}
+                  height={800}
+                  src={`${process.env.ASSET_ENDPOINT}${bestProducts[0].thumbnail_image}`}
+                  alt="banner"
                   loading="lazy"
                 />
                 <h3>{bestProducts[0].name}</h3>

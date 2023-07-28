@@ -1,4 +1,5 @@
 import { ProductProps } from "@/lib/types";
+import Image from "next/image";
 import Link from "next/link";
 
 type Product = ProductProps;
@@ -11,11 +12,20 @@ export default function FeatureProduct({ product }: Props) {
   return (
     <Link href={`/product/${product.slug}`}>
       <div className="px-5 py-10 bg-baseColor rounded-xl product_item relative group">
-        <img
+      <Image
+          // className="object-fill"
+          layout="responsive"
+          width={350}
+          height={800}
+          src={`${process.env.ASSET_ENDPOINT}${product.thumbnail_image}`}
+          alt="banner"
+          loading="lazy"
+        />
+        {/* <img
           src={`${process.env.ASSET_ENDPOINT}${product.thumbnail_image}`}
           alt=""
           className="mix-blend-darken mx-auto"
-        />
+        /> */}
         <h3>{product.name}</h3>
         <h4>${product.main_price}</h4>
         <div className="absolute top-3 right-3 w-9 h-9 bg-PaleGray rounded-md flex justify-center items-center opacity-0 group-hover:opacity-100">

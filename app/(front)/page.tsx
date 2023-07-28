@@ -1,4 +1,5 @@
 export const runtime = "edge";
+export const revalidate = 1800;
 import { fetchHomeData } from "@/lib/fetcher";
 import Banner from "../components/home/Banner";
 import BestSale from "../components/home/BestSale";

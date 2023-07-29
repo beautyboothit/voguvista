@@ -12,8 +12,8 @@ export const fetchHomeData = async () => {
     topCategoriesRes.json(),
     bestSaleProductsRes.json(),
   ]);
-  const { kv } = (process.env as unknown as { kv:KVNamespace });
-     await kv.put("home_data",JSON.stringify({
+  const { test } = (process.env as unknown as { test:KVNamespace });
+     await test.put("home_data",JSON.stringify({
       sliders: sliders.data,
       topCategories: topCategories.data,
       bestProducts: bestSaleProducts.data,

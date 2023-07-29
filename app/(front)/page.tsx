@@ -13,11 +13,11 @@ import TrendingProducts from "../components/home/TrendingProducts";
 export default async function Home() {
   const { sliders, topCategories, bestProducts } = await fetchHomeData();
   const { test } = (process.env as unknown as { test:KVNamespace });
-  // const homeData=await test.get('home_data');
+  const homeData=await test.get('home_data');
   return (
     <div>
       <Banner sliders={sliders} />
-      {/* {homeData} */}
+      {homeData}
       <div className="container mx-auto">
         <TopCategories topCategories={topCategories} />
         <TopProducts bestProducts={bestProducts} />

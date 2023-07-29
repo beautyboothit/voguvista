@@ -13,18 +13,18 @@ export const fetchHomeData = async () => {
     bestSaleProductsRes.json(),
   ]);
   const { test } = (process.env as unknown as { test:KVNamespace });
-     await test.put("home_data",JSON.stringify({
-      sliders: sliders.data,
-      topCategories: topCategories.data,
-      bestProducts: bestSaleProducts.data,
-    }));
-
-
-  return {
-    sliders: sliders.data,
-    topCategories: topCategories.data,
-    bestProducts: bestSaleProducts.data,
-  };
+    //  await test.put("home_data",JSON.stringify({
+    //   sliders: sliders.data,
+    //   topCategories: topCategories.data,
+    //   bestProducts: bestSaleProducts.data,
+    // }));
+  const homeData=await test.get('home_data');
+  return JSON.parse(homeData!);
+  // return {
+  //   sliders: sliders.data,
+  //   topCategories: topCategories.data,
+  //   bestProducts: bestSaleProducts.data,
+  // };
 };
 
 export const fetchProduct = async (slug: string) => {

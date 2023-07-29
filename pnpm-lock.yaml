@@ -49,6 +49,9 @@ devDependencies:
   '@cloudflare/next-on-pages':
     specifier: ^1.4.0
     version: 1.4.0(vercel@30.2.3)(wrangler@3.4.0)
+  wrangler:
+    specifier: 3.4.0
+    version: 3.4.0
 
 packages:
 

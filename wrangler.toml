@@ -1,4 +1,5 @@
 name = "vougevistabd"
 compatibility_date = "2023-01-25"
 
-kv_namespaces = [  {  binding = "test", id = "a3238f3e10ca4c039b5f4344b268baee", preview_id = "a3238f3e10ca4c039b5f4344b268baee"  }]
+kv_namespaces = [ { binding = "data", id = "2bc0e7f510a44dad8648578a3c6515c3" }
+]

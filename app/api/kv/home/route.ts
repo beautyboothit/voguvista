@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { set } from "@/lib/kv";
 import { NextResponse } from "next/server";
 export async function GET() {

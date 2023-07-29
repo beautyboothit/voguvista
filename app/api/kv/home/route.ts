@@ -1,5 +1,6 @@
-export const fetchHomeData = async () => {
-
+import { set } from "@/lib/kv";
+import { NextResponse } from "next/server";
+export async function GET() {
   const [sliderRes, topCategoriesRes, bestSaleProductsRes] = await Promise.all([
     fetch(process.env.API_ENDPOINT + "sliders"),
     fetch(process.env.API_ENDPOINT + "categories/trending?slice=false"),
@@ -10,17 +11,10 @@ export const fetchHomeData = async () => {
     topCategoriesRes.json(),
     bestSaleProductsRes.json(),
   ]);
-  return {
+ const res= await set("home_data", {
     sliders: sliders.data,
     topCategories: topCategories.data,
     bestProducts: bestSaleProducts.data,
-  };
-};
-
-export const fetchProduct = async (slug: string) => {
-  const res = await fetch(process.env.API_ENDPOINT + "products/" + slug);
-  console.log(process.env.API_ENDPOINT + "products/" + slug);
-
-  const product = await res.json();
-  return { product: product.data[0] };
-};
+  });
+  return NextResponse.json({ success: res });
+}

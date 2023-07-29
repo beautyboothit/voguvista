@@ -1,3 +1,5 @@
+import { KVNamespace } from "@cloudflare/workers-types";
+
 export const fetchHomeData = async () => {
 
   const [sliderRes, topCategoriesRes, bestSaleProductsRes] = await Promise.all([
@@ -12,15 +14,15 @@ export const fetchHomeData = async () => {
   ]);
   try{
    //@ts-ignore
-  const { vv } = (process.env as { vv });
-  await vv.put('home_data', {
+  const { vv } = (process.env as { vv:KVNamespace });
+  await vv.put('home_data', JSON.stringify({
     sliders: sliders.data,
     topCategories: topCategories.data,
     bestProducts: bestSaleProducts.data,
-  });
+  }));
  }
  catch(e){
-  
+
  }
 
 

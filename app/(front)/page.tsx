@@ -11,14 +11,9 @@ import TopProducts from "../components/home/TopProducts";
 import TrendingProducts from "../components/home/TrendingProducts";
 
 export default async function Home() {
-  let res:any="empty";
-  const { test } = (process.env as unknown as { test:KVNamespace });
-    res = await test.get("home_posts");
-
   const { sliders, topCategories, bestProducts } = await fetchHomeData();
   return (
     <div>
-      {JSON.stringify(res)}
       <Banner sliders={sliders} />
 
       <div className="container mx-auto">

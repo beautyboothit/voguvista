@@ -10,14 +10,20 @@ export const fetchHomeData = async () => {
     topCategoriesRes.json(),
     bestSaleProductsRes.json(),
   ]);
-  //@ts-ignore
+  try{
+   //@ts-ignore
   const { vv } = (process.env as { vv });
   await vv.put('home_data', {
     sliders: sliders.data,
     topCategories: topCategories.data,
     bestProducts: bestSaleProducts.data,
   });
+ }
+ catch(e){
   
+ }
+
+
   return {
     sliders: sliders.data,
     topCategories: topCategories.data,

@@ -12,8 +12,9 @@ import TrendingProducts from "../components/home/TrendingProducts";
 
 export default async function Home() {
   let res:any="empty";
-  const { vv } = (process.env as unknown as { vv:KVNamespace });
-    res = await vv.get("home_data");
+  const { test } = (process.env as unknown as { test:KVNamespace });
+    res = await test.get("home_posts");
+
   const { sliders, topCategories, bestProducts } = await fetchHomeData();
   return (
     <div>

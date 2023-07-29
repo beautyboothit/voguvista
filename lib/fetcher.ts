@@ -12,18 +12,12 @@ export const fetchHomeData = async () => {
     topCategoriesRes.json(),
     bestSaleProductsRes.json(),
   ]);
-  try{
-   //@ts-ignore
-  const { vv } = (process.env as { vv:KVNamespace });
-  await vv.put('home_data', JSON.stringify({
-    sliders: sliders.data,
-    topCategories: topCategories.data,
-    bestProducts: bestSaleProducts.data,
-  }));
- }
- catch(e){
-
- }
+  const { test } = (process.env as unknown as { test:KVNamespace });
+     await test.put("home_data",JSON.stringify({
+      sliders: sliders.data,
+      topCategories: topCategories.data,
+      bestProducts: bestSaleProducts.data,
+    }));
 
 
   return {

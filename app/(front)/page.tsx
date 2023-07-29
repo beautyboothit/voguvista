@@ -1,5 +1,6 @@
 export const runtime = "edge";
 export const revalidate = 1800;
+import { KVNamespace } from "@cloudflare/workers-types";
 import { fetchHomeData } from "@/lib/fetcher";
 import Banner from "../components/home/Banner";
 import BestSale from "../components/home/BestSale";
@@ -11,11 +12,12 @@ import TrendingProducts from "../components/home/TrendingProducts";
 
 export default async function Home() {
   const { sliders, topCategories, bestProducts } = await fetchHomeData();
-  
+  const { data } = (process.env as unknown as { data:KVNamespace });
+  const homeData=await data.get('home_data');
   return (
     <div>
       <Banner sliders={sliders} />
-      {/* {homeData} */}
+      {homeData}
       <div className="container mx-auto">
         <TopCategories topCategories={topCategories} />
         <TopProducts bestProducts={bestProducts} />

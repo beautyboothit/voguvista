@@ -24,9 +24,11 @@ export const fetchHomeData = async () => {
 };
 
 export const fetchProduct = async (slug: string) => {
+  const productData=await get('product_'+slug);
+  if(productData){
+    return productData;
+  }
   const res = await fetch(process.env.API_ENDPOINT + "products/" + slug);
-  console.log(process.env.API_ENDPOINT + "products/" + slug);
-
   const product = await res.json();
   return { product: product.data[0] };
 };

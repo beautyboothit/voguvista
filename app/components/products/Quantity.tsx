@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+type Props = {
+  userId:string|undefined
+};
 
-type Props = {};
-
-export default function Quantity({}: Props) {
+export default function Quantity({userId}: Props) {
   const [quantity, setQuantity] = useState(1);
 
   const increase = () => {
@@ -17,8 +19,14 @@ export default function Quantity({}: Props) {
     }
   };
 
-  const addToCart = () => {
+  const addToCart = async () => {
     //TODO: create add to cart
+    let id=localStorage.getItem("userId")
+     if(!id){
+     id = uuidv4();
+     localStorage.setItem("userId",id)
+     }
+     console.log(id)
   };
 
   return (
@@ -86,6 +94,7 @@ export default function Quantity({}: Props) {
         </div>
         <button
           type="button"
+          onClick={addToCart}
           className="flex-1 bg-brandColor rounded flex justify-center items-center"
         >
           <svg

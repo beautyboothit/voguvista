@@ -12,7 +12,6 @@ import Size from "@/app/components/products/Size";
 import { fetchProduct } from "@/lib/fetcher";
 import { ProductProps } from "@/lib/types";
 
-import { cookies } from "next/headers";
 
 type Props = {
   params: {
@@ -20,9 +19,7 @@ type Props = {
   };
 };
 export default async function ProductPage({ params }: Props) {
-  const cookieStore = cookies();
 
-  console.log("****" + cookieStore.get("userId"));
 
   const { product }: any = await fetchProduct(params.slug);
   return (

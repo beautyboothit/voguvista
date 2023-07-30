@@ -1,8 +1,26 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
 
 type Props = {};
 
 export default function Quantity({}: Props) {
+  const [quantity, setQuantity] = useState(1);
+
+  const increase = () => {
+    setQuantity((q) => q + 1);
+  };
+
+  const decrease = () => {
+    if (quantity > 0) {
+      setQuantity((q) => q - 1);
+    }
+  };
+
+  const addToCart = () => {
+    //TODO: create add to cart
+  };
+
   return (
     <div className="mt-9">
       <div className="flex justify-between items-center">
@@ -31,8 +49,12 @@ export default function Quantity({}: Props) {
       <div className="mt-4 flex gap-3">
         <div className="flex gap-3">
           <div className="flex border border-[#DCDCDC] h-10 leading-10 rounded line">
-            <span className="flex justify-center w-20"> 1</span>
-            <button className="flex justify-center items-center w-10 bg-[#F4F4F4] border-l border-[#DCDCDC]">
+            <span className="flex justify-center w-20"> {quantity}</span>
+            <button
+              disabled={quantity == 1}
+              onClick={decrease}
+              className="flex justify-center items-center w-10 bg-[#F4F4F4] border-l border-[#DCDCDC] disabled:cursor-not-allowed"
+            >
               <svg
                 width="8"
                 height="2"
@@ -43,7 +65,10 @@ export default function Quantity({}: Props) {
                 <path d="M8 0V2H0V0H8Z" fill="#3B3B3B" />
               </svg>
             </button>
-            <button className="flex justify-center items-center w-10 bg-[#F4F4F4] border-l border-[#DCDCDC]">
+            <button
+              onClick={increase}
+              className="flex justify-center items-center w-10 bg-[#F4F4F4] border-l border-[#DCDCDC]"
+            >
               <svg
                 width="10"
                 height="10"

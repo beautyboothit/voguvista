@@ -52,7 +52,7 @@ export default function TopProducts({ bestProducts }: Props) {
           <div className="flex flex-col gap-9">
             <Link
               href={`/product/${bestProducts[0].slug}`}
-              className="px-10 pt-[113px] pb-10 bg-baseColor rounded-xl"
+              className="px-10 rounded-xl"
             >
               <div className="product_item">
                 {/* <img

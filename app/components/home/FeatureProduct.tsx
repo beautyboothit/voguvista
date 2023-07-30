@@ -11,13 +11,13 @@ type Props = {
 export default function FeatureProduct({ product }: Props) {
   return (
     <Link href={`/product/${product.slug}`}>
-      <div className="px-5 py-10 bg-baseColor rounded-xl product_item relative group">
-      <Image
+      <div className="px-5 rounded-xl product_item relative group">
+        <Image
           // className="object-fill"
           layout="responsive"
-          width={350}
-          height={800}
-          src={`${process.env.ASSET_ENDPOINT}static/300/600/${product.thumbnail_image}`}
+          width={340}
+          height={340}
+          src={`${process.env.ASSET_ENDPOINT}static/340/578/${product.thumbnail_image}`}
           alt="banner"
           loading="lazy"
         />

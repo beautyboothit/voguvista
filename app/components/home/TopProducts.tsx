@@ -66,7 +66,7 @@ export default function TopProducts({ bestProducts }: Props) {
                   layout="responsive"
                   width={350}
                   height={800}
-                  src={`${process.env.ASSET_ENDPOINT}${bestProducts[0].thumbnail_image}`}
+                  src={`${process.env.ASSET_ENDPOINT}static/600/1100/${bestProducts[0].thumbnail_image}`}
                   alt="banner"
                   loading="lazy"
                 />

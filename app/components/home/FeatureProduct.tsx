@@ -17,7 +17,7 @@ export default function FeatureProduct({ product }: Props) {
           layout="responsive"
           width={350}
           height={800}
-          src={`${process.env.ASSET_ENDPOINT}${product.thumbnail_image}`}
+          src={`${process.env.ASSET_ENDPOINT}static/300/600/${product.thumbnail_image}`}
           alt="banner"
           loading="lazy"
         />

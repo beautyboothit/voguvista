@@ -1,32 +1,61 @@
 "use client";
 
+import cartStore from "@/app/hooks/use-store";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 type Props = {
-  userId:string|undefined
+  productId: number;
 };
 
-export default function Quantity({userId}: Props) {
-  const [quantity, setQuantity] = useState(1);
+export default function Quantity({ productId }: Props) {
+  const cartSummary = cartStore();
+
+  const filterItem = cartSummary.items.filter(
+    (item) => item.product_id == productId
+  )[0];
 
   const increase = () => {
-    setQuantity((q) => q + 1);
+    // console.log(cartSummary.quantity);
+    // setQuantity((q) => q + 1);
   };
 
   const decrease = () => {
-    if (quantity > 0) {
-      setQuantity((q) => q - 1);
-    }
+    // if (quantity > 0) {
+    //   setQuantity((q) => q - 1);
+    // }
   };
 
   const addToCart = async () => {
     //TODO: create add to cart
-    let id=localStorage.getItem("userId")
-     if(!id){
-     id = uuidv4();
-     localStorage.setItem("userId",id)
-     }
-     console.log(id)
+    let id = localStorage.getItem("userId");
+    if (!id) {
+      id = uuidv4();
+      localStorage.setItem("userId", id);
+    }
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BROWSER_ENDPOINT}carts/add/${id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          id: productId,
+          qyantity: filterItem ? filterItem.quantity : 1,
+        }),
+      }
+    );
+
+    // const item = await res.json();
+    // cartSummary.setCart(item.items);
+
+    // const filterItem = cartSummary.items.filter(
+    //   (item) => item.product_id == productId
+    // )[0];
+
+    // setQuantity(filterItem ? filterItem.quantity : 1);
   };
 
   return (
@@ -57,9 +86,19 @@ export default function Quantity({userId}: Props) {
       <div className="mt-4 flex gap-3">
         <div className="flex gap-3">
           <div className="flex border border-[#DCDCDC] h-10 leading-10 rounded line">
-            <span className="flex justify-center w-20"> {quantity}</span>
+            <span className="flex justify-center w-20">
+              {/* {cartSummary.items.filter(
+                (item) => item.product_id == productId
+              )[0]
+                ? cartSummary.items.filter(
+                    (item) => item.product_id == productId
+                  )[0].quantity
+                : 1} */}
+
+              {filterItem ? filterItem.quantity : 1}
+            </span>
             <button
-              disabled={quantity == 1}
+              // disabled={quantity == 1}
               onClick={decrease}
               className="flex justify-center items-center w-10 bg-[#F4F4F4] border-l border-[#DCDCDC] disabled:cursor-not-allowed"
             >

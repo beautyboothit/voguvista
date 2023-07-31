@@ -12,16 +12,14 @@ import Size from "@/app/components/products/Size";
 import { fetchProduct } from "@/lib/fetcher";
 import { ProductProps } from "@/lib/types";
 
-
 type Props = {
   params: {
     slug: string;
   };
 };
 export default async function ProductPage({ params }: Props) {
-
-
   const { product }: any = await fetchProduct(params.slug);
+
   return (
     <div className="container mx-auto">
       {/* <!-- product details  --> */}
@@ -48,7 +46,7 @@ export default async function ProductPage({ params }: Props) {
           <Size />
 
           {/* <!-- Quantity  --> */}
-          <Quantity />
+          <Quantity productId={product.id} />
 
           {/* <!-- promotional offer  --> */}
           <PromotionalOffer />
